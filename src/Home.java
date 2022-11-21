@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.Border;
+import java.awt.*;
 
 
 public class Home extends JFrame {
@@ -31,10 +32,12 @@ public class Home extends JFrame {
 
     public  Home(){
         setContentPane(Container);
-        setTitle("test");
+        setTitle("Musypi");
         setSize(1000,800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        Image icon =Toolkit.getDefaultToolkit().getImage("./image/ico.png");
+        setIconImage(icon);
 
 
         Border emptyBorder = BorderFactory.createEmptyBorder();
@@ -49,8 +52,8 @@ public class Home extends JFrame {
     public static void main(String[] args)   {
 
         Home frame = new Home();
-        System.out.println("all done");
-
+        ImageIcon img = new ImageIcon("./image/music_art.png");
+        frame.setIconImage(img.getImage());
 
     }
 
