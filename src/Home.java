@@ -28,6 +28,9 @@ public class Home extends JFrame {
     private JPanel Search;
     private JTextField dfcsTextField;
     private JButton Search_btn;
+    private JPanel navigators_panel;
+    private JButton Home;
+    private JButton Liked;
 
 
     public  Home(){
@@ -45,8 +48,8 @@ public class Home extends JFrame {
         button2.setBorder(emptyBorder);
         button3.setBorder(emptyBorder);
         Search_btn.setBorder(emptyBorder);
-
-
+        Home.setBorder(emptyBorder);
+        Liked.setBorder(emptyBorder);
 
     }
     public static void main(String[] args)   {
