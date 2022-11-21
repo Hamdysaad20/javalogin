@@ -25,7 +25,8 @@ public class Home extends JFrame {
     private JPanel user_info;
     private JPanel userHeader_img;
     private JPanel Search;
-    private JFormattedTextField formattedTextField1;
+    private JTextField dfcsTextField;
+    private JButton Search_btn;
 
 
     public  Home(){
@@ -40,6 +41,8 @@ public class Home extends JFrame {
         button1.setBorder(emptyBorder);
         button2.setBorder(emptyBorder);
         button3.setBorder(emptyBorder);
+        Search_btn.setBorder(emptyBorder);
+
 
 
     }
