@@ -31,6 +31,13 @@ public class Home extends JFrame {
     private JPanel navigators_panel;
     private JButton Home;
     private JButton Liked;
+    private JPanel Sec1;
+    private JPanel card1;
+    private JButton card_btn;
+    private JPanel card1_info;
+    private JLabel Card1_name;
+    private JPanel search_res;
+    private JPanel search_area;
 
 
     public  Home(){
