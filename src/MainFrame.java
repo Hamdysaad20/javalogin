@@ -9,7 +9,8 @@ public class MainFrame  extends JFrame{
     private JPasswordField pass_input;
     private  JPanel mainPanal;
     private JPanel container;
-
+    private JPanel all;
+    private JPanel front_image;
 
 
     public  MainFrame(){
