@@ -42,7 +42,7 @@ public class Home extends JFrame {
 
     public  Home(){
         setContentPane(Container);
-        setTitle("Musypi");
+        setTitle("Musicfy");
         setSize(1000,800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);

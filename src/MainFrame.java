@@ -15,7 +15,7 @@ public class MainFrame  extends JFrame{
 
     public  MainFrame(){
         setContentPane(mainPanal);
-setTitle("test");
+setTitle("Musicfy");
 setSize(800,800);
 setDefaultCloseOperation(EXIT_ON_CLOSE);
 setVisible(true);
