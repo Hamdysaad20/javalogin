@@ -23,12 +23,14 @@ public class checkout extends JFrame{
     private JTextField User_L_name;
     private JPanel container_saved_data;
     private JPanel container_card;
+    private JTextField City;
+    private JTextField Country;
 
 
     public  checkout(){
         setContentPane(main);
         setTitle("Musicfy");
-        setSize(800,800);
+        setSize(1400,1000);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
