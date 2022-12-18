@@ -32,12 +32,24 @@ public class Home extends JFrame {
     private JButton Home;
     private JButton Liked;
     private JPanel Sec1;
-    private JPanel card1;
-    private JButton card_btn;
-    private JPanel card1_info;
-    private JLabel Card1_name;
+    private  JLabel Card1_name;
     private JPanel search_res;
     private JPanel search_area;
+    private JPanel search_block;
+    private JLabel card_btn;
+    private JLabel card_btn2;
+    private JLabel card_btn3;
+    private JLabel Card2_name;
+    private JLabel Card3_name;
+    private JLabel Card4_name;
+    private JPanel sec2;
+    private JLabel card_btn4;
+    private JPanel card2;
+    private JPanel card2_info;
+    private JPanel card1;
+    private JPanel card3;
+    private JPanel card4;
+    private JLabel card_btn1;
 
 
     public  Home(){
@@ -59,13 +71,23 @@ public class Home extends JFrame {
         Liked.setBorder(emptyBorder);
 
     }
+
+    // method that change the icon of the label and the text of the label
+//    public void changeIcon(JLabel label ,JLabel label2, String icon,String MusicName){
+//        label2.setIcon(new ImageIcon(icon));
+//        label.setText(MusicName);
+//    }
+
+
     public static void main(String[] args)   {
 
         Home frame = new Home();
         ImageIcon img = new ImageIcon("./image/music_art.png");
         frame.setIconImage(img.getImage());
 
+//        frame.changeIcon(frame.Card2_name,frame.card_btn2,"E://programingprojects//JavaProjects//javalogin//src//image//muic_artwork3.png","Music Name");
     }
+
 
 
 }

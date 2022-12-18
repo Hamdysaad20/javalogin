@@ -20,7 +20,6 @@ setSize(800,800);
 setDefaultCloseOperation(EXIT_ON_CLOSE);
 setVisible(true);
     }
-// music_info:arr[] => [music_Price,title,id,artist]
 
      public static void paymentlogic(double TAX, float music_price, int Quantity){
      //tax= 2.5%
