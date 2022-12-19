@@ -32,6 +32,7 @@ public class checkout extends JFrame{
     private JPanel Error_Area;
     private  JLabel Error_message;
     private JButton cansel_btn;
+    private JLabel totalprice;
 
 
     public  checkout(){
