@@ -32,7 +32,12 @@ public class checkout extends JFrame{
     private JPanel Error_Area;
     private  JLabel Error_message;
     private JButton cansel_btn;
-    private JLabel totalprice;
+    private JLabel totalprice_name;
+    private JPanel price_area;
+    private JPanel quantity_area;
+    private JLabel quantity_name;
+    private JLabel price;
+    private JLabel quantity;
 
 
     public  checkout(){
@@ -292,7 +297,23 @@ public class checkout extends JFrame{
 
 
     }
-// button onclick event
+//method to change the quantity label when the quantity is changed
+    public static int Change_Quantity(JLabel label,int quantity){
+        label.setText(String.valueOf(quantity));
+        return quantity;
+    }
+
+    //method tho change the quantity and price of the product
+    public static void Change_Price(double quantity,JLabel price,Double price_product){
+
+                if(quantity == 0){
+                    price.setText("0.00");
+                }else{
+                    price.setText(String.valueOf(price_product*((int) quantity)));
+                }
+            }
+
+
 
     public static void main(String[] args)   {
 
@@ -308,7 +329,9 @@ public class checkout extends JFrame{
             Textfield_BillingAdress(frame.billing_adress);
             Error_Message(frame.Error_Area,frame.Error_message,"THEIS IS AN ERROR MESSAGE",true);
 
-
+           //change the quantity to change the price .
+            int quantityValPassed = Change_Quantity(frame.quantity,12);
+            Change_Price(quantityValPassed,frame.price,1.99);
         } catch (Exception e) {
             e.printStackTrace();
         }
