@@ -3,7 +3,12 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 
+
+
+
 public class Home extends JFrame {
+    //create Jpanel with rounded corners
+
     private JPanel Container;
     private JPanel herder;
     private JPanel Player_Bar;
@@ -50,6 +55,17 @@ public class Home extends JFrame {
     private JPanel card3;
     private JPanel card4;
     private JLabel card_btn1;
+    private JPanel BROWS;
+    private JLabel catigory;
+    private JLabel playlist_name;
+    private JLabel catigory2;
+    private JLabel catigory3;
+    private JLabel catigory4;
+    private JLabel catigory5;
+    private JLabel playlist_name2;
+    private JLabel playlist_name3;
+    private JLabel playlist_name4;
+    private JLabel playlist_name5;
 
 
     public  Home(){
@@ -74,21 +90,58 @@ public class Home extends JFrame {
 
     // method that change the icon of the label and the text of the label
     public void changeIcon(JLabel label ,JLabel label2, String icon,String MusicName){
+      //trim the name of the music to 20 char
+        if(MusicName.length()>20){
+            MusicName=MusicName.substring(0,20)+"...";
+            label.setText(MusicName);
+        }
+        else{
+            label.setText(MusicName);
+        }
+
         label2.setIcon(new ImageIcon(icon));
-        label.setText(MusicName);
+    }
+
+    // method that paly the music
+    public void playMusic(String music){
+        //get the path of the music
+        String path = "./music/"+music;
+        //create a new thread to play the music
+
+
+
+    }
+
+// create rounded jPanel with the given color
+
+//create a method that change playlist_name and category
+    public void changePlaylist(JLabel playlist_name,JLabel catigory,String playlist_nameSet,String catigory_name){
+        playlist_name.setText(playlist_nameSet);
+        catigory.setText(catigory_name);
     }
 
 
     public static void main(String[] args)   {
 
+
     Home frame = new Home();
       ImageIcon img = new ImageIcon("./image/music_art.png");
        frame.setIconImage(img.getImage());
-        frame.changeIcon(frame.Card1_name,frame.card_btn1,"E://programingprojects//JavaProjects//javalogin//src//image//muic_artwork3.png","Music Name");
-      frame.changeIcon(frame.Card2_name,frame.card_btn2,"E://programingprojects//JavaProjects//javalogin//src//image//muic_artwork2.png","Music2 Name");
+        frame.changeIcon(frame.Card1_name,frame.card_btn1,"E://programingprojects//JavaProjects//javalogin//src//image//muic_artwork3.png","NOT SOBER - THE KID LAROI & Juice WRLD");
+      frame.changeIcon(frame.Card2_name,frame.card_btn2,"E://programingprojects//JavaProjects//javalogin//src//image//muic_artwork2.png","NOT SOBER - THE KID LAROI & Juice WRLD");
+        frame.changeIcon(frame.Card3_name,frame.card_btn3,"E://programingprojects//JavaProjects//javalogin//src//image//muic_artwork2.png","NOT SOBER - THE KID LAROI & Juice WRLD");
+        frame.changeIcon(frame.Card4_name,frame.card_btn4,"E://programingprojects//JavaProjects//javalogin//src//image//muic_artwork2.png","NOT SOBER - THE KID LAROI & Juice WRLD");
+
+        // sec (Mix playlist)
+        frame.changePlaylist(frame.playlist_name,frame.catigory,"Mix","Playlist");
+        frame.changePlaylist(frame.playlist_name2,frame.catigory2,"Mix","Playlist");
+        frame.changePlaylist(frame.playlist_name3,frame.catigory3,"Mix","Playlist");
+        frame.changePlaylist(frame.playlist_name4,frame.catigory4,"Mix","Playlist");
+        frame.changePlaylist(frame.playlist_name5,frame.catigory5,"Mix","Playlist");
 
     }
 
 
 
 }
+
