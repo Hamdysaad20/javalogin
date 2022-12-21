@@ -86,7 +86,15 @@ setVisible(true);
 
         signUp frame = new signUp();
         System.out.println("all done");
+frame.signInButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainFrame frame2 = new MainFrame();
+                frame2.setVisible(true);
+                frame.setVisible(false);
 
+            }
+        });
         frame.signUpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
