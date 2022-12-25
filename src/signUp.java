@@ -63,7 +63,7 @@ setVisible(true);
     }
     // method to validate the username
     public static boolean validateUsername(String username) {
-        String regex = "^[a-zA-Z0-9_]*$";
+        String regex = "^[/w]*$";
         Pattern p = Pattern.compile(regex);
         if (username == null) {
             return false;
