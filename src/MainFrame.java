@@ -1,4 +1,8 @@
 import javax.swing.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -64,12 +68,33 @@ setVisible(true);
         frame.loginButton.addActionListener(e -> {
            //validate the password
             if (validatePassword(frame.pass_input.getText())) {
+                //check if the username and password are correct from the database
+                //if correct open the home page
+                //else show error message
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicapp","root","1wd3wa2wsAa#");
+                    Statement stmt = con.createStatement();
+                    String sql = "SELECT * FROM userinfo WHERE userName = '"+frame.username_input.getText()+"' AND userPassword = '"+frame.pass_input.getText()+"'";
+                    System.out.println(sql);
+                    stmt.executeQuery(sql);
+                    System.out.println("from the main in the main frame");
+                   //if the username and password are correct open the home page
 
-                JOptionPane.showMessageDialog(null, "Password is valid");
+                    Home frame3 = new Home();
+                    frame3.setVisible(true);
+                    frame.setVisible(false);
 
-                signUp registerFrame = new signUp();
-                registerFrame.setVisible(true);
-                frame.setVisible(false);
+
+
+
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
             } else {
                 JOptionPane.showMessageDialog(null, "password is not valid");
             }

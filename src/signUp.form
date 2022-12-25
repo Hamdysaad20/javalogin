@@ -60,7 +60,7 @@
                 <properties>
                   <font name="Arial Rounded MT Bold" size="16" style="0"/>
                   <margin top="0" left="12" bottom="0" right="0"/>
-                  <text value="hgfhgfh"/>
+                  <text value="1wd3wa2wsAa#"/>
                 </properties>
               </component>
               <component id="dd8d2" class="javax.swing.JButton" binding="signUpButton" default-binding="true">
@@ -98,7 +98,7 @@
                   <focusCycleRoot value="true"/>
                   <font name="Arial Rounded MT Bold" size="16" style="0"/>
                   <margin top="3" left="8" bottom="3" right="8"/>
-                  <text value="ghfghgh"/>
+                  <text value="HamdyIStesting@admin"/>
                 </properties>
               </component>
               <component id="7a675" class="javax.swing.JLabel" binding="password">
@@ -132,7 +132,7 @@
                   <focusCycleRoot value="true"/>
                   <font name="Arial Rounded MT Bold" size="16" style="0"/>
                   <margin top="3" left="8" bottom="3" right="8"/>
-                  <text value="ghfghgh"/>
+                  <text value="HamdyIStesting"/>
                 </properties>
               </component>
               <component id="7eacd" class="javax.swing.JLabel">
@@ -156,7 +156,7 @@
                   <focusCycleRoot value="true"/>
                   <font name="Arial Rounded MT Bold" size="16" style="0"/>
                   <margin top="3" left="8" bottom="3" right="8"/>
-                  <text value="ghfghgh"/>
+                  <text value="HamdyIStesting"/>
                 </properties>
               </component>
               <component id="a2a48" class="javax.swing.JLabel">
@@ -180,7 +180,7 @@
                   <focusCycleRoot value="true"/>
                   <font name="Arial Rounded MT Bold" size="16" style="0"/>
                   <margin top="3" left="8" bottom="3" right="8"/>
-                  <text value="ghfghgh"/>
+                  <text value="Egypt"/>
                 </properties>
               </component>
               <component id="34dd0" class="javax.swing.JLabel">
@@ -204,7 +204,7 @@
                   <focusCycleRoot value="true"/>
                   <font name="Arial Rounded MT Bold" size="16" style="0"/>
                   <margin top="3" left="8" bottom="3" right="8"/>
-                  <text value="ghfghgh"/>
+                  <text value="lol"/>
                 </properties>
               </component>
               <component id="160f" class="javax.swing.JLabel">

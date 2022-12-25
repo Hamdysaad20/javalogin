@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class checkout extends JFrame{
     private JPanel main;
@@ -43,7 +47,7 @@ public class checkout extends JFrame{
     public  checkout(){
         setContentPane(main);
         setTitle("Musicfy");
-        setSize(1400,1000);
+        setSize(1400,800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -320,6 +324,24 @@ public class checkout extends JFrame{
         try {
             checkout frame = new checkout();
             System.out.println("all done");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            //connect to the database
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicapp", "root", "1wd3wa2wsAa#");
+            Statement stmt = con.createStatement();
+            //get first name and last name  and country and city from the database
+            ResultSet rs = stmt.executeQuery(" select userFirstName,userLastName,userCountry,userCity from userInfo");
+            while (rs.next()) {
+                //set the first name and last name and country and city to the textfield
+                frame.User_F_name.setText(rs.getString(1));
+                frame.User_L_name.setText(rs.getString(2));
+                frame.Country.setText(rs.getString(3));
+                frame.City.setText(rs.getString(4));
+            }
+
+            con.close();
+
+
 
             Textfield_NumberOnly(frame.Card_number);
             CVV(frame.CVV);

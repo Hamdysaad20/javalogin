@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.sql.*;
+
 
 public class signUp  extends JFrame{
     private JLabel password;
@@ -104,8 +106,34 @@ frame.signInButton.addActionListener(new ActionListener() {
                 String country = frame.country_input.getText();
                 String email = frame.email_input.getText();
 
+
+
                 if (validateEmail(email) && validateCountry(country) && validateUsername(fristName) && validateUsername(lastName) && validatePassword(password)) {
-                    JOptionPane.showMessageDialog(null, " You have successfully signed up");
+                 //insert password and fristname  and lastname and country and email to database sql
+                    try {
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicapp","root","1wd3wa2wsAa#");
+                        Statement stmt = con.createStatement();
+//insert password and firstname and lastname and country  and email and department is boolean and username
+                        String sql = "INSERT INTO userinfo (userPassword,userFirstName,userLastName,userCountry,userEmail,userDepartment,userName) VALUES ('"+password+"','"+fristName+"','"+lastName+"','"+country+"','"+email+"',0,'"+fristName+"')";
+                        stmt.executeUpdate(sql);
+
+
+                       ResultSet rs = stmt.executeQuery("SELECT * FROM userinfo");
+                        while (rs.next()) {
+                            System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4) + " " + rs.getString(5) + " " + rs.getString(6));
+                            System.out.println("inserted");
+                            JOptionPane.showMessageDialog(null, " You have successfully signed up");
+                            con.close();
+
+                        }
+
+
+
+                    }catch (Exception ex) {
+                        System.out.println(ex+" error");
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "invalid input please try again");
                 }
