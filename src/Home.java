@@ -37,7 +37,6 @@ public class Home extends JFrame {
     private JButton Liked;
     private JPanel Sec1;
     private  JLabel Card1_name;
-    private JPanel search_res;
     private JPanel search_area;
     private JPanel search_block;
     private JLabel card_btn;
@@ -65,6 +64,9 @@ public class Home extends JFrame {
     private JLabel playlist_name3;
     private JLabel playlist_name4;
     private JLabel playlist_name5;
+    private JLabel searchrestext;
+    private JLabel lab2;
+    private JPanel searcharearesult;
 
 
     public  Home(){
@@ -120,19 +122,32 @@ public class Home extends JFrame {
     }
 
     //create a method that take astring and search for it in the database
-    public static void searchFN(String search){
+    public static String[] searchFN(String search ,JPanel frame){
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicapp","root","1wd3wa2wsAa#");
             Statement stmt = con.createStatement();
-            String sql = "SELECT * FROM music WHERE musicTitle LIKE '%"+search+"%'";
-            ResultSet rs = stmt.executeQuery(sql);
-            while(rs.next()){
-                System.out.println(rs.getString("name"));
-            }
-            con.close();
+            //get the music title and the music image from the database where the music title is like the search
+            ResultSet rs = stmt.executeQuery("select musicTitle,musicArtLocation from music where musicTitle like '%"+search+"%'");
 
+            //if the result is not empty
+            if(rs.next()){
+                //get the music title and the music image
+                String music_title = rs.getString("musicTitle");
+                String musicArtLocation = rs.getString("musicArtLocation");
+                //return the music title and the music image
+                String arr[] = {music_title,musicArtLocation};
+                frame.setVisible(true);
+
+                return arr ;
+            }
+            else{
+                //if the result is empty return null
+                String arr[] = {"There is no result for this search",""};
+
+                return arr;
+            }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -147,11 +162,18 @@ public class Home extends JFrame {
 
 
     Home frame = new Home();
+        // hide searcharearesult panle from the main frame
+        frame.searcharearesult.setVisible(false);
+        
 
         frame.Search_btn.addActionListener(e -> {
             String saerchString = frame.dfcsTextField.getText();
+String result[] = searchFN(saerchString,frame.searcharearesult);
+            searchFN(saerchString,frame.searcharearesult);
+            //result
+            frame.searchrestext.setText(String.valueOf(result[0]));
+            frame.lab2.setText(String.valueOf(result[1]));
 
-            searchFN(saerchString);
         });
 
 
@@ -180,3 +202,7 @@ public class Home extends JFrame {
 
 }
 
+
+
+
+// insert in the music table ion the database random music information in musicTitle, musicDuration , musicCatigory ,musicLocation ,musicArtLocation ,musicFormate , isFavorite

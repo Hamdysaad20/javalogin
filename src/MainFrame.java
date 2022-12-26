@@ -58,6 +58,10 @@ setVisible(true);
 
         MainFrame frame = new MainFrame();
         System.out.println("from the main in the main frame");
+
+
+
+
         //on click of donTHaveAccountButton open the register frame
         frame.donTHaveAccountButton.addActionListener(e -> {
             System.out.println("from the main in the main frame");
