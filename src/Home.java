@@ -1,9 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-
-
-
+import java.awt.event.ActionListener;
+import java.sql.*;
 
 
 public class Home extends JFrame {
@@ -120,11 +119,47 @@ public class Home extends JFrame {
         catigory.setText(catigory_name);
     }
 
+    //create a method that take astring and search for it in the database
+    public static void searchFN(String search){
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicapp","root","1wd3wa2wsAa#");
+            Statement stmt = con.createStatement();
+            String sql = "SELECT * FROM music WHERE musicTitle LIKE '%"+search+"%'";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                System.out.println(rs.getString("name"));
+            }
+            con.close();
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public static void main(String[] args)   {
 
+        //event when click on the search button
+
 
     Home frame = new Home();
+
+        frame.Search_btn.addActionListener(e -> {
+            String saerchString = frame.dfcsTextField.getText();
+
+            searchFN(saerchString);
+        });
+
+
+
+
+
+
+
       ImageIcon img = new ImageIcon("./image/music_art.png");
        frame.setIconImage(img.getImage());
         frame.changeIcon(frame.Card1_name,frame.card_btn1,"E://programingprojects//JavaProjects//javalogin//src//image//muic_artwork3.png","NOT SOBER - THE KID LAROI & Juice WRLD");
